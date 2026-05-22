@@ -1,0 +1,14 @@
+{
+  "id": "stripe-idempotency",
+  "provider": "Stripe",
+  "providerSlug": "stripe",
+  "dimension": "idempotency",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://docs.stripe.com/api/idempotent_requests",
+  "evidenceQuote": "The Stripe API supports idempotency for safely retrying requests without accidentally performing the same operation twice.",
+  "notes": "All POST endpoints accept an `Idempotency-Key` header. Keys are remembered for 24 hours.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["payments", "idempotency", "rest"]
+}

@@ -1,0 +1,147 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Agent Readiness
+  description: >-
+    Controlled vocabulary for the agent-readiness topic — the operational
+    practices, specifications, and signals that make an API surface safely
+    usable by autonomous AI agents rather than only by humans. Defines the
+    dimensions of agent readiness, the standards that contribute to each
+    dimension, and the personas that consume the resulting signals.
+  created: "2026-05-22"
+  modified: "2026-05-22"
+
+operational:
+  resources:
+    - name: signal
+      description: A single observed agent-readiness signal for one provider and one dimension
+      api: agent-readiness
+      actions: [list, get]
+    - name: provider
+      description: A provider-level aggregate of signals across all dimensions
+      api: agent-readiness
+      actions: [list, get]
+
+  actions:
+    - name: list
+      http_method: GET
+      pattern: read
+    - name: get
+      http_method: GET
+      pattern: read
+
+  schemas:
+    core:
+      - name: AgentReadinessSignal
+        description: A single observable agent-readiness signal
+      - name: AgentReadinessProvider
+        description: A provider-level aggregate of signals
+
+  enums:
+    dimensions:
+      - name: spec-presence
+        description: Whether a public, current OpenAPI (or equivalent) is published
+      - name: auth-model-clarity
+        description: Whether the auth model is documented in machine-readable form (OIDC discovery, OpenAPI security schemes)
+      - name: idempotency
+        description: Whether mutating operations support idempotency keys
+      - name: error-semantics
+        description: Whether errors follow a stable, documented envelope with stable codes
+      - name: rate-limit-headers
+        description: Whether the API surfaces rate-limit state in response headers
+      - name: dry-run-mode
+        description: Whether destructive operations expose a dry-run / simulate mode
+      - name: openapi-examples
+        description: Whether the OpenAPI includes meaningful request and response examples
+      - name: mcp-server
+        description: Whether the provider ships an MCP server (or there is a first-party community one)
+      - name: asyncapi-events
+        description: Whether event/webhook surfaces are described by AsyncAPI or an equivalent contract
+      - name: well-known-catalog
+        description: Whether the provider publishes /.well-known/api-catalog (RFC 9727)
+      - name: consent-signals
+        description: Whether the provider publishes AIPREF / Cloudflare Content-Signal directives
+      - name: bot-auth
+        description: Whether the provider supports or surfaces Web Bot Auth (RFC 9421)
+
+    scoreLabels:
+      - absent
+      - partial
+      - present
+      - exemplary
+
+capability:
+  personas:
+    - id: provider-engineer
+      name: Provider Engineer
+      description: Engineer at an API provider auditing their own surface against the dimensions
+    - id: integration-engineer
+      name: Integration Engineer
+      description: Engineer evaluating whether a third-party API can be driven by an agent before integrating
+    - id: agent-developer
+      name: Agent Developer
+      description: Developer building autonomous agents who needs to pick safe, legible API surfaces
+    - id: procurement-buyer
+      name: Procurement Buyer
+      description: Buyer scoring vendor APIs on agent-readiness during procurement or RFP
+    - id: directory-curator
+      name: Directory Curator
+      description: Maintainer of an API directory or marketplace ranking listed APIs by agent-readiness
+
+  domains:
+    - name: Specifications
+      description: OpenAPI, AsyncAPI, JSON Schema, JSON Structure
+      resources: [signal]
+    - name: Identity and Consent
+      description: OIDC, OAuth, RFC 9421, Web Bot Auth, AIPREF
+      resources: [signal]
+    - name: Operational Hygiene
+      description: Idempotency, error envelopes, rate-limit headers, dry-run modes
+      resources: [signal]
+    - name: Discovery
+      description: APIs.json, /.well-known/api-catalog, Agent Skills
+      resources: [signal]
+    - name: Agent Tooling
+      description: MCP servers, agent SDKs, language SDKs
+      resources: [signal]
+
+  namespaces:
+    consumed:
+      - name: openapi
+        baseUri: https://spec.openapis.org/oas/latest.html
+      - name: asyncapi
+        baseUri: https://www.asyncapi.com/docs/reference/specification/latest
+      - name: json-schema
+        baseUri: https://json-schema.org
+      - name: mcp
+        baseUri: https://modelcontextprotocol.io
+      - name: rfc-9727
+        baseUri: https://www.rfc-editor.org/rfc/rfc9727.html
+      - name: rfc-9421
+        baseUri: https://www.rfc-editor.org/rfc/rfc9421.html
+      - name: aipref
+        baseUri: https://datatracker.ietf.org/wg/aipref/about/
+      - name: agent-skills
+        baseUri: https://agentskills.io
+
+crossReference:
+  - resource: signal
+    dimensions:
+      - spec-presence
+      - auth-model-clarity
+      - idempotency
+      - error-semantics
+      - rate-limit-headers
+      - dry-run-mode
+      - openapi-examples
+      - mcp-server
+      - asyncapi-events
+      - well-known-catalog
+      - consent-signals
+      - bot-auth
+    personas:
+      - Provider Engineer
+      - Integration Engineer
+      - Agent Developer
+      - Procurement Buyer
+      - Directory Curator

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agent-readiness/refs/heads/main/json-schema/agent-readiness-signal-schema.json",
+  "title": "AgentReadinessSignal",
+  "description": "A single observable signal that an API provider supports a specific dimension of agent readiness, with an evidence URL that anchors the score.",
+  "type": "object",
+  "required": ["provider", "dimension", "score", "evidenceUrl", "observedOn"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the signal, typically `{providerSlug}-{dimensionSlug}`.",
+      "example": "stripe-openapi-spec-present"
+    },
+    "provider": {
+      "type": "string",
+      "description": "Canonical name of the API provider this signal describes.",
+      "example": "Stripe"
+    },
+    "providerSlug": {
+      "type": "string",
+      "description": "Lowercased, hyphenated slug used for cross-references.",
+      "example": "stripe"
+    },
+    "dimension": {
+      "type": "string",
+      "description": "The agent-readiness dimension being scored. See vocabulary/agent-readiness-vocabulary.yaml for the canonical list.",
+      "enum": [
+        "spec-presence",
+        "auth-model-clarity",
+        "idempotency",
+        "error-semantics",
+        "rate-limit-headers",
+        "dry-run-mode",
+        "openapi-examples",
+        "mcp-server",
+        "asyncapi-events",
+        "well-known-catalog",
+        "consent-signals",
+        "bot-auth"
+      ],
+      "example": "spec-presence"
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3,
+      "description": "Score from 0 (absent) to 3 (best-in-class). 0=absent, 1=partial/undocumented, 2=present and documented, 3=present, documented, and machine-discoverable.",
+      "example": 3
+    },
+    "scoreLabel": {
+      "type": "string",
+      "enum": ["absent", "partial", "present", "exemplary"],
+      "description": "Human-readable label corresponding to the numeric score.",
+      "example": "exemplary"
+    },
+    "evidenceUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Public URL that anchors the score. The page or file an auditor can read to verify the claim.",
+      "example": "https://github.com/stripe/openapi"
+    },
+    "evidenceQuote": {
+      "type": "string",
+      "description": "Optional verbatim quote from the evidence URL supporting the score.",
+      "example": "This repository contains OpenAPI specifications for Stripe's API."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-form notes from the reviewer, e.g. caveats or version applicability.",
+      "example": "Spec is split into preview and stable; both are kept in sync with the changelog."
+    },
+    "observedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the signal was observed.",
+      "example": "2026-05-22"
+    },
+    "observer": {
+      "type": "string",
+      "description": "Person or organisation that recorded the signal.",
+      "example": "API Evangelist"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Free-form tags for filtering and grouping signals.",
+      "example": ["payments", "rest", "openapi"]
+    }
+  }
+}

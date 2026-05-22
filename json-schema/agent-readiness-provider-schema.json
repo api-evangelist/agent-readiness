@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agent-readiness/refs/heads/main/json-schema/agent-readiness-provider-schema.json",
+  "title": "AgentReadinessProvider",
+  "description": "A provider-level aggregate that collects every agent-readiness signal observed for one API provider and rolls them up into an overall score.",
+  "type": "object",
+  "required": ["provider", "providerSlug", "signals", "observedOn"],
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "Canonical name of the API provider.",
+      "example": "Stripe"
+    },
+    "providerSlug": {
+      "type": "string",
+      "description": "Lowercased, hyphenated slug used for cross-references.",
+      "example": "stripe"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Provider's developer homepage.",
+      "example": "https://docs.stripe.com/api"
+    },
+    "apiBaseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical API base URL.",
+      "example": "https://api.stripe.com"
+    },
+    "signals": {
+      "type": "array",
+      "description": "All agent-readiness signals observed for this provider.",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/api-evangelist/agent-readiness/refs/heads/main/json-schema/agent-readiness-signal-schema.json"
+      }
+    },
+    "overallScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 3,
+      "description": "Mean of the numeric scores across all signals. Computed; not authoritative.",
+      "example": 2.7
+    },
+    "scoredDimensions": {
+      "type": "integer",
+      "description": "Count of distinct dimensions scored.",
+      "example": 9
+    },
+    "observedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the provider aggregate was assembled.",
+      "example": "2026-05-22"
+    },
+    "observer": {
+      "type": "string",
+      "description": "Person or organisation that recorded the aggregate.",
+      "example": "API Evangelist"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Free-form tags grouping the provider (e.g. industry, integration pattern).",
+      "example": ["payments", "rest", "webhooks"]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "twilio-spec-presence",
+  "provider": "Twilio",
+  "providerSlug": "twilio",
+  "dimension": "spec-presence",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://github.com/twilio/twilio-oai",
+  "evidenceQuote": "Twilio's OpenAPI Specification source of truth, used to generate Twilio's SDKs.",
+  "notes": "Twilio maintains a public OpenAPI repository and uses it to generate every official SDK, making the spec the canonical contract.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["messaging", "rest", "openapi"]
+}

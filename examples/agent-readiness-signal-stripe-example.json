@@ -1,0 +1,14 @@
+{
+  "id": "stripe-spec-presence",
+  "provider": "Stripe",
+  "providerSlug": "stripe",
+  "dimension": "spec-presence",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://github.com/stripe/openapi",
+  "evidenceQuote": "This repository contains OpenAPI specifications for Stripe's API.",
+  "notes": "Stripe publishes its full OpenAPI on GitHub and updates it alongside the public API changelog. Both preview and stable variants are versioned.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["payments", "rest", "openapi"]
+}

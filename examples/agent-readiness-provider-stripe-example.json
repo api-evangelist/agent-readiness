@@ -1,0 +1,85 @@
+{
+  "provider": "Stripe",
+  "providerSlug": "stripe",
+  "homepage": "https://docs.stripe.com/api",
+  "apiBaseUrl": "https://api.stripe.com",
+  "signals": [
+    {
+      "id": "stripe-spec-presence",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "spec-presence",
+      "score": 3,
+      "scoreLabel": "exemplary",
+      "evidenceUrl": "https://github.com/stripe/openapi",
+      "notes": "Public OpenAPI repo, kept in sync with the changelog.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    },
+    {
+      "id": "stripe-auth-model-clarity",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "auth-model-clarity",
+      "score": 3,
+      "scoreLabel": "exemplary",
+      "evidenceUrl": "https://docs.stripe.com/api/authentication",
+      "notes": "Bearer secret key documented in prose and in the OpenAPI security schemes.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    },
+    {
+      "id": "stripe-idempotency",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "idempotency",
+      "score": 3,
+      "scoreLabel": "exemplary",
+      "evidenceUrl": "https://docs.stripe.com/api/idempotent_requests",
+      "notes": "Documented `Idempotency-Key` header across all POSTs.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    },
+    {
+      "id": "stripe-error-semantics",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "error-semantics",
+      "score": 3,
+      "scoreLabel": "exemplary",
+      "evidenceUrl": "https://docs.stripe.com/api/errors",
+      "notes": "Stable error envelope with documented `type`, `code`, and `decline_code` taxonomies.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    },
+    {
+      "id": "stripe-rate-limit-headers",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "rate-limit-headers",
+      "score": 2,
+      "scoreLabel": "present",
+      "evidenceUrl": "https://docs.stripe.com/rate-limits",
+      "notes": "Rate limits documented, but live state is communicated via 429 + retry semantics rather than per-request headers across all endpoints.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    },
+    {
+      "id": "stripe-asyncapi-events",
+      "provider": "Stripe",
+      "providerSlug": "stripe",
+      "dimension": "asyncapi-events",
+      "score": 1,
+      "scoreLabel": "partial",
+      "evidenceUrl": "https://docs.stripe.com/webhooks",
+      "notes": "Webhook events are extensively documented and typed in the OpenAPI, but Stripe does not publish a separate AsyncAPI document.",
+      "observedOn": "2026-05-22",
+      "observer": "API Evangelist"
+    }
+  ],
+  "overallScore": 2.5,
+  "scoredDimensions": 6,
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["payments", "rest", "webhooks"]
+}

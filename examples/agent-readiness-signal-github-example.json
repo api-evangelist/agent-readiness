@@ -1,0 +1,14 @@
+{
+  "id": "github-rate-limit-headers",
+  "provider": "GitHub",
+  "providerSlug": "github",
+  "dimension": "rate-limit-headers",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+  "evidenceQuote": "The REST API returns response headers that tell you about your current rate limit status.",
+  "notes": "GitHub returns `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Used` on every request, including for unauthenticated traffic.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["developer-tools", "rate-limit-headers", "rest"]
+}

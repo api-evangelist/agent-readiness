@@ -1,0 +1,70 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "agr": "https://raw.githubusercontent.com/api-evangelist/agent-readiness/refs/heads/main/json-ld/agent-readiness-context.jsonld#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AgentReadinessSignal": "agr:AgentReadinessSignal",
+    "AgentReadinessProvider": "agr:AgentReadinessProvider",
+    "id": "@id",
+    "provider": "schema:name",
+    "providerSlug": {
+      "@id": "agr:providerSlug",
+      "@type": "xsd:string"
+    },
+    "homepage": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "apiBaseUrl": {
+      "@id": "agr:apiBaseUrl",
+      "@type": "@id"
+    },
+    "dimension": {
+      "@id": "agr:dimension",
+      "@type": "xsd:string"
+    },
+    "score": {
+      "@id": "agr:score",
+      "@type": "xsd:integer"
+    },
+    "scoreLabel": {
+      "@id": "agr:scoreLabel",
+      "@type": "xsd:string"
+    },
+    "evidenceUrl": {
+      "@id": "agr:evidenceUrl",
+      "@type": "@id"
+    },
+    "evidenceQuote": {
+      "@id": "agr:evidenceQuote",
+      "@type": "xsd:string"
+    },
+    "notes": "schema:description",
+    "observedOn": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "observer": {
+      "@id": "agr:observer",
+      "@type": "xsd:string"
+    },
+    "signals": {
+      "@id": "agr:signals",
+      "@container": "@set"
+    },
+    "overallScore": {
+      "@id": "agr:overallScore",
+      "@type": "xsd:decimal"
+    },
+    "scoredDimensions": {
+      "@id": "agr:scoredDimensions",
+      "@type": "xsd:integer"
+    },
+    "tags": {
+      "@id": "schema:keywords",
+      "@container": "@set",
+      "@type": "xsd:string"
+    }
+  }
+}

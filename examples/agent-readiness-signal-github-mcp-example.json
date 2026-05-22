@@ -1,0 +1,14 @@
+{
+  "id": "github-mcp-server",
+  "provider": "GitHub",
+  "providerSlug": "github",
+  "dimension": "mcp-server",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://github.com/github/github-mcp-server",
+  "evidenceQuote": "The GitHub MCP Server is a Model Context Protocol (MCP) server that provides seamless integration with GitHub APIs.",
+  "notes": "First-party MCP server maintained by GitHub itself, covering repos, issues, pull requests, and actions.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["developer-tools", "mcp", "agent-tooling"]
+}

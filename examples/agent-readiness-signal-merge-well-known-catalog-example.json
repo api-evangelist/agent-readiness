@@ -1,0 +1,14 @@
+{
+  "id": "merge-well-known-catalog",
+  "provider": "Merge.dev",
+  "providerSlug": "merge",
+  "dimension": "well-known-catalog",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://docs.merge.dev/.well-known/api-catalog",
+  "evidenceQuote": "{\"linkset\":[{\"anchor\":\"https://docs.merge.dev/merge-unified/hris\",\"service-desc\":[{\"href\":\"https://docs.merge.dev/openapi.yaml?api=897b64f3-1ddf-4bc9-ac5e-681a32145e06\",\"type\":\"application/yaml\"}]},{\"anchor\":\"https://docs.merge.dev/merge-unified/ats\",...},...]}",
+  "notes": "10 linkset entries — one per Merge Unified API category (HRIS, ATS, Accounting, Ticketing, CRM, File Storage, plus Marketing, Knowledge Base, Chat, Data Warehouse where present). Each entry points at a category-specific OpenAPI YAML. Deepest catalog observed in the survey — the model for how a multi-product provider should structure their catalog.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["merge", "unified-api", "rfc9727", "openapi", "well-known-catalog", "multi-product-catalog"]
+}

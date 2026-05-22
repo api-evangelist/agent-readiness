@@ -1,0 +1,14 @@
+{
+  "id": "cloudflare-well-known-catalog",
+  "provider": "Cloudflare",
+  "providerSlug": "cloudflare",
+  "dimension": "well-known-catalog",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://developers.cloudflare.com/.well-known/api-catalog",
+  "evidenceQuote": "{\"linkset\":[{\"anchor\":\"https://developers.cloudflare.com/api/\",\"service-desc\":[{\"href\":\"https://developers.cloudflare.com/openapi.json\",\"type\":\"application/json\"}],...}]}",
+  "notes": "Returns Content-Type `application/linkset+json; profile=\"https://www.rfc-editor.org/info/rfc9727\"`. One linkset entry pointing at the bundled openapi.json. Served at developers.cloudflare.com, docs.cloudflare.com, and developer.cloudflare.com (all routes resolve to the same content).",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["edge", "gateway", "rfc9727", "openapi", "well-known-catalog"]
+}

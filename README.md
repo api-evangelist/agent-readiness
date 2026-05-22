@@ -104,6 +104,21 @@ The canonical machine entrypoint for discovering an organization's APIs, formatt
 
 **Human URL:** [https://www.rfc-editor.org/rfc/rfc9727.html](https://www.rfc-editor.org/rfc/rfc9727.html)
 
+#### Observed in the wild (2026-05-22 survey of 74 candidate providers)
+
+Four providers serve a real `application/linkset+json` LinkSet at `.well-known/api-catalog`:
+
+| Provider | Endpoint | Entries | Notable |
+|---|---|---|---|
+| **Cloudflare** | `developers.cloudflare.com/.well-known/api-catalog` | 1 | Properly typed with `profile="rfc9727"`. Points at the bundled `openapi.json`. |
+| **Memesio** | `memesio.com/.well-known/api-catalog` | 2 | Only catalog observed that publishes **both** the REST API and the MCP server endpoint. The template other providers should copy. |
+| **Merge.dev** | `docs.merge.dev/.well-known/api-catalog` | 10 | Deepest catalog — one entry per Unified API category (HRIS, ATS, Accounting, CRM, Ticketing, File Storage, etc.). |
+| **Zuplo** | `zuplo.com/.well-known/api-catalog` | 1 | Only catalog explicitly declaring `application/vnd.oai.openapi+json;version=3.1` on its typed link. |
+
+Signal records: see [`examples/agent-readiness-signal-cloudflare-well-known-catalog-example.json`](examples/agent-readiness-signal-cloudflare-well-known-catalog-example.json), [`memesio`](examples/agent-readiness-signal-memesio-well-known-catalog-example.json), [`merge`](examples/agent-readiness-signal-merge-well-known-catalog-example.json), [`zuplo`](examples/agent-readiness-signal-zuplo-well-known-catalog-example.json).
+
+The 70 other providers probed (the recent API Evangelist pipeline batch plus the obvious candidates — Stripe, Twilio, GitHub, Salesforce, Microsoft Graph, Google, Postman, Plaid, SendGrid, Slack, Shopify, Intercom, Segment, Hookdeck, every API gateway, every iPaaS, every identity provider, every docs platform, every SDK generator, every observability vendor, every LLM provider) either returned 404 / no route, or returned 200 with HTML — a SPA catch-all fallback, not a real LinkSet. The signal is essentially uncatalogued in 2026.
+
 ### HTTP Message Signatures (RFC 9421)
 
 A cryptographic signature scheme for HTTP messages used by the emerging web-bot-auth profile.

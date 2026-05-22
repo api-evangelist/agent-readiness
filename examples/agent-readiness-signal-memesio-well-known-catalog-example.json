@@ -1,0 +1,14 @@
+{
+  "id": "memesio-well-known-catalog",
+  "provider": "Memesio",
+  "providerSlug": "memesio",
+  "dimension": "well-known-catalog",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://memesio.com/.well-known/api-catalog",
+  "evidenceQuote": "{\"linkset\":[{\"anchor\":\"https://memesio.com/api\",\"service-desc\":[{\"href\":\"https://memesio.com/api/openapi\",\"type\":\"application/json\",\"title\":\"Memesio OpenAPI description\"}],...},{\"anchor\":\"https://memesio.com/api/mcp\",...}]}",
+  "notes": "Returns Content-Type `application/linkset+json; profile=\"https://www.rfc-editor.org/info/rfc9727\"`. Two linkset entries — one for the public OpenAPI surface, one for the MCP server endpoint. Only provider observed in the survey that publishes both its REST and MCP surfaces in the same well-known catalog, which is the pattern other providers should copy.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["memesio", "rfc9727", "openapi", "mcp", "well-known-catalog", "agent-readiness-template"]
+}

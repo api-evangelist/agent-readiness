@@ -1,0 +1,14 @@
+{
+  "id": "zuplo-well-known-catalog",
+  "provider": "Zuplo",
+  "providerSlug": "zuplo",
+  "dimension": "well-known-catalog",
+  "score": 3,
+  "scoreLabel": "exemplary",
+  "evidenceUrl": "https://zuplo.com/.well-known/api-catalog",
+  "evidenceQuote": "{\"linkset\":[{\"anchor\":\"https://dev.zuplo.com\",\"service-desc\":[{\"href\":\"https://dev.zuplo.com/openapi\",\"type\":\"application/vnd.oai.openapi+json;version=3.1\"}]}]}",
+  "notes": "Returns Content-Type `application/linkset+json`. One linkset entry pointing at the developer-portal OpenAPI 3.1 spec. Typed link explicitly declares `application/vnd.oai.openapi+json;version=3.1` — the only catalog in the survey that explicitly carries the OpenAPI version in its link type. A gateway company practicing what they preach.",
+  "observedOn": "2026-05-22",
+  "observer": "API Evangelist",
+  "tags": ["zuplo", "gateway", "rfc9727", "openapi-3.1", "well-known-catalog"]
+}

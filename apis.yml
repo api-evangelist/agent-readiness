@@ -106,13 +106,13 @@ apis:
   - url: https://www.rfc-editor.org/rfc/rfc9264.html
     type: Documentation
   - url: examples/agent-readiness-signal-cloudflare-well-known-catalog-example.json
-    type: Example
+    type: Examples
   - url: examples/agent-readiness-signal-memesio-well-known-catalog-example.json
-    type: Example
+    type: Examples
   - url: examples/agent-readiness-signal-merge-well-known-catalog-example.json
-    type: Example
+    type: Examples
   - url: examples/agent-readiness-signal-zuplo-well-known-catalog-example.json
-    type: Example
+    type: Examples
   description: RFC 9727 defines `/.well-known/api-catalog` as the canonical machine entrypoint for discovering an organization's APIs, formatted as an RFC 9264 linkset. Presence of a catalog at this path is one of the cheapest, highest-impact agent-readiness signals — agents do not have to crawl HTML to find specs. As of 2026-05-22, a survey of 74 likely-candidate providers found only four serving a real RFC 9727 linkset at the well-known path — Cloudflare, Memesio, Merge.dev, and Zuplo — with example signal records committed for each.
 - aid: agent-readiness:rfc-9421-http-message-signatures
   name: HTTP Message Signatures (RFC 9421)

@@ -252,6 +252,8 @@ apis:
     type: OpenAPI
   description: Reference provider with strong agent-readiness signals on the messaging side — published OpenAPI, idempotency on resource creation, structured error codes, signed webhooks, status page, and SDKs in every major language.
 common:
+- type: IssueTracker
+  url: https://github.com/api-evangelist/agent-readiness/issues
 - type: VulnerabilityDisclosure
   url: security/agent-readiness-vulnerability-disclosure.yml
 - type: DomainSecurity

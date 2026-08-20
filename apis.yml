@@ -194,6 +194,11 @@ apis:
   name: OpenID Connect
   tags:
   - Identity
+  - Authentication
+  - Agent Readiness
+  - Standards
+  tags_raw:
+  - Identity
   - OAuth
   - Agent Readiness
   - Standards
